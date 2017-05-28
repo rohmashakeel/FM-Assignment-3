@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
+int y;
+chan press;</declaration><template><name x="5" y="5">Light</name><declaration>// Place local declarations here.
+</declaration><location id="id0" x="184" y="-96"><name x="174" y="-126">bright</name></location><location id="id1" x="24" y="-96"><name x="14" y="-126">low</name></location><location id="id2" x="-144" y="-96"><name x="-154" y="-126">off</name></location><init ref="id2"/><transition><source ref="id1"/><target ref="id2"/><label kind="synchronisation" x="-80" y="-48">press?</label><label kind="assignment" x="-80" y="-72">y&gt;=5</label><nail x="-16" y="-48"/><nail x="-112" y="-48"/></transition><transition><source ref="id0"/><target ref="id2"/><label kind="synchronisation" x="48" y="16">press?</label><nail x="184" y="16"/><nail x="-144" y="16"/></transition><transition><source ref="id1"/><target ref="id0"/><label kind="synchronisation" x="64" y="-120">press?</label><label kind="assignment" x="72" y="-96">y&lt;5</label></transition><transition><source ref="id2"/><target ref="id1"/><label kind="synchronisation" x="-80" y="-168">press?</label><label kind="assignment" x="-72" y="-144">y:=0</label><nail x="-104" y="-144"/><nail x="-8" y="-144"/></transition></template><template><name>User</name><location id="id3" x="-72" y="-24"><name x="-82" y="-54">idle</name></location><init ref="id3"/><transition><source ref="id3"/><target ref="id3"/><label kind="synchronisation" x="-8" y="-32">press!</label><nail x="-16" y="-96"/><nail x="-16" y="48"/></transition></template><system>// Place template instantiations here.
+L1 = Light();
+U1 = User();
+
+// List one or more processes to be composed into a system.
+system L1, U1;</system></nta>
